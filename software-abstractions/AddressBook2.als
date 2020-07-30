@@ -10,6 +10,8 @@ pred show (b: Book) {some b.addr}
 
 run show for 3 but 1 Book
 
+// x.r: navigation from object x through one application of relation r
+// x.^r: navigation from object x through one or more applications of r
 fact {
 	all b: Book | no n: Name | n in n.^(b.addr)
 	}
