@@ -33,7 +33,7 @@ fact traces {
 	init [first]
 	all b: Book - last | let b' = next [b] |
 		some n: Name, t: Target | add [b,b',n,t] or del [b,b',n,t]
-}
+	}
 
 pred show {}
 run show for 4
