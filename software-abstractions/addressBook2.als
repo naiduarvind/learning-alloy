@@ -54,7 +54,7 @@ check addLocal for 3 but 2 Book
 
 assert lookupYields {
 	all b: Book, n: b.names | some lookup [b,n]
-}
+	}
 
 check lookupYields for 4 but 1 Book
 
@@ -62,11 +62,5 @@ check lookupYields for 4 but 1 Book
 // due to the modifcation of sig to sig fact above for Book
 // desired outcome: an alias mapped to two addresses
 //pred show (b: Book) {some b.addr}
-
-pred show (b: Book) {some Alias.(b.addr)}
-
-run show for 3 but 1 Book
-
-
-
-
+//pred show (b: Book) {some Alias.(b.addr)}
+//run show for 3 but 1 Book
