@@ -11,8 +11,13 @@ sig Alias, Group extends Name {}
 // fact below written as signature facts
 // applies to every member of  signature
 // implicit reference and quantification to particular members
-sig Book {addr: Name -> Target }
-	{no n: Name | n in n.^addr}
+sig Book {
+	names: set Name,
+	addr: names -> some Target }
+	{
+	no n: Name | n in n.^addr
+	all a: Alias | lone a.addr
+}
 
 // group now contains two addresses
 // due to the modifcation of sig to sig fact above for Book
@@ -28,4 +33,8 @@ run show for 3 but 1 Book
 //fact {
 //	all b: Book | no n: Name | n in n.^(b.addr)
 //	}
+
+assert lookupYields {
+	all b: Book, n: b.names | some lookup [b,n]
+}
 
